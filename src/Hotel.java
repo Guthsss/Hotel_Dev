@@ -4,42 +4,66 @@ public class Hotel {
 
     static short opcao;
     static String[] quartos = new String[10];
-    static Scanner scanner = new Scanner(System.in);
+    static Scanner sc = new Scanner(System.in);
+    static String nome1;
+    static String nome2;
+
+    int quarto;
 
     public void checkin() {
-        System.out.println("");
-        System.out.println("Escolha o quarto: ");
-        int quarto = scanner.nextInt();
-        if (quartos[quarto] == " ") {
+        System.out.print("Qual seu nome: ");
+        nome1 = sc.next();
 
+        for (int i = 1; i <= quartos.length; i ++) {
+            System.out.println("Quarto [" + i + "] - " + quartos[i - 1]);
+        }
+        System.out.print("Escolha o quarto: ");
+        int quarto = sc.nextInt();
+        if (quartos[quarto - 1] == "Livre") {
+            quartos[quarto - 1] = "Ocupado - " + nome1;
         }
     }
     public void checkout() {
+        System.out.println("Qual seu quarto: ");
+        quarto = sc.nextInt();
+        quartos[quarto - 1] = "Livre";
     }
     public void exibirQuartos() {
+        for (int i = 1; i <= quartos.length; i ++) {
+            System.out.println("Quarto [" + i + "] - " + quartos[i - 1]);
+        }
     }
     public void procurarHospede() {
+        System.out.println("Qual seu nome: ");
+        nome2 = sc.next();
+        if (nome2 == nome1) {
+            System.out.println(nome2 + " está no quarto ");
+        }
     }
 
     public static void main(String[] args) {
 
-        for (short i = 0; i < 10; i++) {
-            quartos[i] = " ";
+        for (int i = 0; i < quartos.length; i ++) {
+            quartos[i] = "Livre";
         }
-
+        Hotel object = new Hotel();
         while (opcao != 5) {
 
             System.out.println("==================================\nHotel Dev - O Código aconchegando\n==================================");
             System.out.println("[1] Check-in (Ocupar Quarto)\n[2] Check-out (Liberar Quarto)\n[3] Ver Lista de Quartos\n[4] Procurar Hóspede\n[5] Sair");
 
             System.out.print("\nEscolha uma opção: ");
-            opcao = scanner.nextShort();
+            opcao = sc.nextShort();
 
             switch (opcao) {
+                case 1 -> object.checkin();
+                case 2 -> object.checkout();
+                case 3 -> object.exibirQuartos();
+                case 4 -> object.procurarHospede();
                 case 5 -> {
                     opcao = 5;
                     System.out.println("\nEncerrando o programa...");
-                    scanner.close();
+                    sc.close();
                 }
                 default -> {
                     System.out.println("Opção inválida.");
