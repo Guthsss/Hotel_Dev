@@ -40,7 +40,9 @@ public class Hotel {
             if (quartos[i].contains(nome2)) {
                 System.out.println(nome2 + " está no quarto[" + (i + 1) + "]");
                 break;
-            }
+            } else {
+                System.out.println("Seu nome não está inserido no nosso hotel")
+                break;
         }
     }
 
