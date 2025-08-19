@@ -43,6 +43,7 @@ public class Hotel {
             } else {
                 System.out.println("Seu nome não está inserido no nosso hotel")
                 break;
+            }
         }
     }
 
