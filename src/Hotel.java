@@ -21,6 +21,9 @@ public class Hotel {
         int quarto = sc.nextInt();
         if (quartos[quarto - 1] == "Livre") {
             quartos[quarto - 1] = "Ocupado - " + nome1;
+        } else {
+            System.out.println("Este quardo está ocupado");
+            break;
         }
     }
     public void checkout() {
@@ -41,7 +44,7 @@ public class Hotel {
                 System.out.println(nome2 + " está no quarto[" + (i + 1) + "]");
                 break;
             } else {
-                System.out.println("Seu nome não está inserido no nosso hotel")
+                System.out.println("Seu nome não está inserido no nosso hotel");
                 break;
             }
         }
