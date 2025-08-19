@@ -23,13 +23,19 @@ public class Hotel {
             quartos[quarto - 1] = "Ocupado - " + nome1;
         } else {
             System.out.println("Este quardo está ocupado");
-            break;
         }
     }
     public void checkout() {
+        for (int i = 1; i <= quartos.length; i ++) {
+            System.out.println("Quarto [" + i + "] - " + quartos[i - 1]);
+        }
         System.out.print("Qual seu quarto: ");
         quarto = sc.nextInt();
-        quartos[quarto - 1] = "Livre";
+        if (quartos[quarto - 1].contains("Ocupado")) {
+            quartos[quarto - 1] = "Livre";
+        } else {
+            System.out.println("Este quarto já está livre, escolha um quarto ocupado.");
+        }
     }
     public void exibirQuartos() {
         for (int i = 1; i <= quartos.length; i ++) {
@@ -44,7 +50,7 @@ public class Hotel {
                 System.out.println(nome2 + " está no quarto[" + (i + 1) + "]");
                 break;
             } else {
-                System.out.println("Seu nome não está inserido no nosso hotel");
+                System.out.println("Seu nome não está inserido no nosso banco de dados.");
                 break;
             }
         }
