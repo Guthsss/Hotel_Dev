@@ -24,7 +24,7 @@ public class Hotel {
         }
     }
     public void checkout() {
-        System.out.println("Qual seu quarto: ");
+        System.out.print("Qual seu quarto: ");
         quarto = sc.nextInt();
         quartos[quarto - 1] = "Livre";
     }
@@ -34,10 +34,13 @@ public class Hotel {
         }
     }
     public void procurarHospede() {
-        System.out.println("Qual seu nome: ");
+        System.out.print("Qual seu nome: ");
         nome2 = sc.next();
-        if (nome2 == nome1) {
-            System.out.println(nome2 + " está no quarto ");
+        for (int i = 1; i <= quartos.length; i ++) {
+            if (quartos[i].contains(nome2)) {
+                System.out.println(nome2 + " está no quarto[" + (i + 1) + "]");
+                break;
+            }
         }
     }
 
