@@ -64,7 +64,7 @@ public class Hotel {
         Hotel object = new Hotel();
         while (opcao != 5) {
 
-            System.out.println("==================================\nHotel Dev - O Código aconchegando\n==================================");
+            System.out.println("===================================\nHotel Dev - O Código aconchegando\n===================================");
             System.out.println("[1] Check-in (Ocupar Quarto)\n[2] Check-out (Liberar Quarto)\n[3] Ver Lista de Quartos\n[4] Procurar Hóspede\n[5] Sair");
 
             System.out.print("\nEscolha uma opção: ");
